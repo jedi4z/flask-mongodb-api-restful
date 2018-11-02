@@ -1,1 +1,1 @@
-# flask-mongodb-api-restful
+# RESTful API with python3, flask & mongodb
