@@ -4,6 +4,22 @@ from ..mongo import mongo
 from ..forms.user_form import UserForm
 
 
+class User(Resource):
+    def get(self, first_name):
+        user = mongo.db.users.find_one_or_404({
+            'first_name': first_name
+        })
+
+        output = {
+            'result': {
+                'first_name': user['first_name'],
+                'last_name': user['last_name'],
+            }
+        }
+
+        return output, 200
+
+
 class UserList(Resource):
     def get(self):
         """
